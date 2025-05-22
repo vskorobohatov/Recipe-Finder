@@ -24,7 +24,6 @@ class SpoonacularService {
           ...query,
         },
       });
-      console.log("123", recipes);
       return recipes.data;
       // eslint-disable-next-line
     } catch (e: any) {

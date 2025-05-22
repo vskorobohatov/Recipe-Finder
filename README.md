@@ -1,9 +1,15 @@
 ## Getting Started
 
-Use this command to run dev server:
+First build the application:
 
 ```bash
-npm run dev
+npm run build
+```
+
+Use this command to launch application:
+
+```bash
+npm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
