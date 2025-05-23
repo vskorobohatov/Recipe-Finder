@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "A simple app to search for recipes",
 };
 
-export default function ReceipesLayout({
+export default function ReceipeDetailsLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
