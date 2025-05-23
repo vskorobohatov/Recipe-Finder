@@ -23,3 +23,8 @@ This is a simple web application for searching and viewing recipes. It features 
 3. **Recipe Details Page**: View detailed information about a selected recipe, including ingredients and time to cook.
 
 Application supports both light/dark themes.
+
+## Things to improve
+
+1. Refactor tailwind styles (move them to separate styles.scss files for better support and readability)
+2. Update UI/UX (add some transitions, navigation buttons, pagination, etc...)
