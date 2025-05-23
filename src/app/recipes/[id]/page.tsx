@@ -56,21 +56,29 @@ const RecipeDetails = async ({
         </div>
       )}
       <ul className="space-y-1 text-gray-900 dark:text-gray-100">
-        <li>
-          <span className="font-medium">Servings:</span> {recipe.servings}
-        </li>
-        <li>
-          <span className="font-medium">Ready In Minutes:</span>{" "}
-          {recipe.readyInMinutes}
-        </li>
-        <li>
-          <span className="font-medium">Cooking Minutes:</span>{" "}
-          {recipe.cookingMinutes}
-        </li>
-        <li>
-          <span className="font-medium">Preparation Minutes:</span>{" "}
-          {recipe.preparationMinutes}
-        </li>
+        {recipe.readyInMinutes && (
+          <li>
+            <span className="font-medium">Servings:</span> {recipe.servings}
+          </li>
+        )}
+        {recipe.readyInMinutes && (
+          <li>
+            <span className="font-medium">Ready In Minutes:</span>{" "}
+            {recipe.readyInMinutes}
+          </li>
+        )}
+        {recipe.cookingMinutes && (
+          <li>
+            <span className="font-medium">Cooking Minutes:</span>{" "}
+            {recipe.cookingMinutes}
+          </li>
+        )}
+        {recipe.preparationMinutes && (
+          <li>
+            <span className="font-medium">Preparation Minutes:</span>{" "}
+            {recipe.preparationMinutes}
+          </li>
+        )}
       </ul>
       <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
         Ingredients
@@ -80,7 +88,7 @@ const RecipeDetails = async ({
           recipe.extendedIngredients.map(
             (ingredient: IngredientInterface, i: number) => (
               <li
-                key={ingredient.id}
+                key={`${ingredient.id}-${i}`}
                 className="text-gray-900 dark:text-gray-100 mr-2 font-medium"
               >
                 {`${i + 1}) `} {ingredient.amount} {ingredient.originalName}
