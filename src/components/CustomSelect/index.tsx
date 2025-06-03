@@ -6,7 +6,7 @@ interface CustomSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 
 const CustomSelect: React.FC<CustomSelectProps> = ({ children, ...props }) => (
   <select
-    className="border border-gray-300 rounded px-3 py-2 h-10 focus:outline-none focus:border-blue-500 flex-1 transition duration-300"
+    className="flex-1 cursor-pointer border border-gray-300 rounded p-2 h-10 focus:outline-none focus:border-blue-500 transition duration-300 bg-white dark:bg-gray-800"
     {...props}
   >
     {children}

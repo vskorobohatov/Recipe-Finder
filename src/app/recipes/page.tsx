@@ -1,3 +1,4 @@
+import ContentWrapper from "@/components/ContentWrapper";
 import PageWrapper from "@/components/PageWrapper";
 import Title from "@/components/Title";
 import SpoonacularService from "@/services/Spoonacular";
@@ -53,46 +54,48 @@ const Recipes = async ({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
-  const searchParamsValues = await searchParams;
+  const searchParamsValues:any = await searchParams;
   const recipes = await searchRecipes(searchParamsValues);
 
   return (
     <PageWrapper>
       <Title>Recipes</Title>
-      {recipes?.results && recipes.results.length > 0 ? (
-        <ul className="space-y-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6">
-          {recipes?.message && (
-            <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">
-              {recipes.message}
-            </div>
-          )}
-          {recipes.results.map((recipe: RecipeType) => (
-            <li
-              key={recipe.id}
-              className="p-4 border rounded shadow-sm flex items-center space-x-4 hover:border-blue-500 transition duration-300"
-            >
-              <a
-                href={`/recipes/${recipe.id}`}
-                className="flex items-center space-x-4 w-full"
+      <ContentWrapper>
+        {recipes?.results && recipes.results.length > 0 ? (
+          <ul className="space-y-4">
+            {recipes?.message && (
+              <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">
+                {recipes.message}
+              </div>
+            )}
+            {recipes.results.map((recipe: RecipeType) => (
+              <li
+                key={recipe.id}
+                className="p-4 border rounded shadow-sm flex items-center space-x-4 hover:border-blue-500 transition-border duration-300"
               >
-                {recipe.image && (
-                  <Image
-                    src={recipe.image}
-                    alt={recipe.title}
-                    width={64}
-                    height={64}
-                  />
-                )}
-                <span className="font-medium text-[16px] sm:text-[20px]">
-                  {recipe.title}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="text-gray-500 text-center">No recipes found.</p>
-      )}
+                <a
+                  href={`/recipes/${recipe.id}?${new URLSearchParams(searchParamsValues).toString()}`}
+                  className="flex items-center space-x-4 w-full"
+                >
+                  {recipe.image && (
+                    <Image
+                      src={recipe.image}
+                      alt={recipe.title}
+                      width={64}
+                      height={64}
+                    />
+                  )}
+                  <span className="font-medium text-[16px] sm:text-[20px]">
+                    {recipe.title}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-gray-500 text-center">No recipes found.</p>
+        )}
+      </ContentWrapper>
     </PageWrapper>
   );
 };

@@ -26,5 +26,5 @@ Application supports both light/dark themes.
 
 ## Things to improve
 
-1. Refactor tailwind styles (move them to separate styles.scss files for better support and readability)
+1. Refactor tailwind styles
 2. Update UI/UX (add some transitions, navigation buttons, pagination, etc...)

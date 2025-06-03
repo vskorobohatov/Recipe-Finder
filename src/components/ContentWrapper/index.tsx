@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PageWrapper({
+export default function ContentWrapper({
   children,
   className: additionalClasses,
 }: Readonly<{
@@ -9,7 +9,7 @@ export default function PageWrapper({
 }>) {
   return (
     <div
-      className={`container mx-auto p-4 max-w-[800px] flex flex-col gap-4 items-center justify-center min-h-screen ${additionalClasses}`}
+      className={`w-full flex items-stretch flex-col gap-4 p-6 bg-white dark:bg-gray-800 rounded-lg shadow space-y-4 ${additionalClasses}`}
     >
       {children}
     </div>

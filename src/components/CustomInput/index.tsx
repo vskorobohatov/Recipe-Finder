@@ -4,7 +4,7 @@ const CustomInput: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (
   props,
 ) => (
   <input
-    className="border border-gray-300 rounded px-3 py-2 h-10 focus:outline-none focus:border-blue-500 flex-4 transition duration-300"
+    className="flex-1 border border-gray-300 rounded p-2 h-10 focus:outline-none focus:border-blue-500 transition duration-300 bg-white dark:bg-gray-800"
     {...props}
   />
 );

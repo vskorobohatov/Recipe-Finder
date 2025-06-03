@@ -10,7 +10,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   ...props
 }) => (
   <button
-    className={`font-semibold px-4 py-2 rounded w-full transition duration-300 ${additionalClasses}`}
+    className={`font-semibold px-4 py-2 rounded w-full transition duration-300 cursor-pointer ${additionalClasses}`}
     {...props}
   >
     {children}
