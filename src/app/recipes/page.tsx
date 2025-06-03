@@ -1,3 +1,5 @@
+import PageWrapper from "@/components/PageWrapper";
+import Title from "@/components/Title";
 import SpoonacularService from "@/services/Spoonacular";
 import Image from "next/image";
 
@@ -55,8 +57,8 @@ const Recipes = async ({
   const recipes = await searchRecipes(searchParamsValues);
 
   return (
-    <div className="container mx-auto p-[16px] max-w-[800px] flex flex-col items-stretch justify-center min-h-screen">
-      <h1 className="text-3xl font-bold mb-4 text-center">Recipes</h1>
+    <PageWrapper>
+      <Title>Recipes</Title>
       {recipes?.results && recipes.results.length > 0 ? (
         <ul className="space-y-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6">
           {recipes?.message && (
@@ -91,7 +93,7 @@ const Recipes = async ({
       ) : (
         <p className="text-gray-500 text-center">No recipes found.</p>
       )}
-    </div>
+    </PageWrapper>
   );
 };
 
