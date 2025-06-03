@@ -54,7 +54,7 @@ const Recipes = async ({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
-  const searchParamsValues:any = await searchParams;
+  const searchParamsValues: any = await searchParams;
   const recipes = await searchRecipes(searchParamsValues);
 
   return (
@@ -69,13 +69,10 @@ const Recipes = async ({
               </div>
             )}
             {recipes.results.map((recipe: RecipeType) => (
-              <li
-                key={recipe.id}
-                className="p-4 border rounded shadow-sm flex items-center space-x-4 hover:border-blue-500 transition-border duration-300"
-              >
+              <li key={recipe.id}>
                 <a
                   href={`/recipes/${recipe.id}?${new URLSearchParams(searchParamsValues).toString()}`}
-                  className="flex items-center space-x-4 w-full"
+                  className="p-4 border rounded shadow-sm flex items-center space-x-4 hover:border-blue-500 transition-border duration-300"
                 >
                   {recipe.image && (
                     <Image
