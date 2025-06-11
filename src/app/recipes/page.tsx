@@ -18,6 +18,12 @@ interface RecipesResponse {
   number: number;
 }
 
+type SearchParams = {
+  query?: string;
+  cuisine?: string;
+  maxReadyTime?: string;
+};
+
 const cache = new Map<string, { data: RecipesResponse; timestamp: number }>();
 const CACHE_DURATION = 60 * 1000; // 1 minute in milliseconds
 
@@ -54,7 +60,7 @@ const Recipes = async ({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
-  const searchParamsValues: any = await searchParams;
+  const searchParamsValues: SearchParams = await searchParams;
   const recipes = await searchRecipes(searchParamsValues);
 
   return (
